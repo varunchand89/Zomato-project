@@ -18,12 +18,6 @@ class curd_3():
         
  
  def insert_values(self,table_name,columns,row_1,rows):
-   for i, value in enumerate(rows):
-        
-        if columns[i] == 'total_orders' and value == '':
-            rows[i] = 0  
-        elif value == '': 
-            rows[i] = None
    query = (f"INSERT INTO {table_name} ({",".join(columns)}) VALUES ({row_1}) ")
    y = self.mycursor.execute(query,tuple(rows))
    self.mydb.commit()
